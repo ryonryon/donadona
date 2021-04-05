@@ -1,9 +1,9 @@
 import { ApolloServer } from "apollo-server";
-import { importSchema } from "graphql-import";
+import typeDefs from "./typeDefs";
 import resolvers from "./resolvers";
 
 export default new ApolloServer({
-  typeDefs: importSchema("src/graphql/schema/schema.gql"),
+  typeDefs,
   resolvers,
   playground: true,
 });
