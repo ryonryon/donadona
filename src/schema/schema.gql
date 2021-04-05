@@ -1,0 +1,36 @@
+type Query {
+  user(userId: ID!): User
+  users: [User]
+}
+
+type Mutation {
+  createUser(firstName: String!, lastName: String!): UserMutationResponse
+  removeUser(userId: ID!): DeletionMutationResponse
+  updateUser(
+    userId: ID!
+    firstName: String
+    lastName: String
+  ): UserMutationResponse
+}
+
+interface MutationResponse {
+  success: Boolean!
+  message: String!
+}
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+}
+
+type DeletionMutationResponse implements MutationResponse {
+  success: Boolean!
+  message: String!
+}
+
+type UserMutationResponse implements MutationResponse {
+  success: Boolean!
+  message: String!
+  user: User
+}
