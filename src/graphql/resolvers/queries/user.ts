@@ -1,5 +1,5 @@
 import { getRepository } from "typeorm";
-import User from "../../entities/User";
+import User from "../../../entities/User";
 
 function user(_: any, { userId }: { userId: string }) {
   const userRepository = getRepository(User);

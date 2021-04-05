@@ -1,18 +1,18 @@
-import "reflect-metadata";
-import { ApolloServer } from "apollo-server";
-import { importSchema } from "graphql-import";
 import { createConnection } from "typeorm";
-import resolvers from "./resolvers";
+import apollo from "./graphql";
+
+import "reflect-metadata";
 
 (async () => {
-  const _ = await createConnection();
+  await createConnection();
 
-  const server = new ApolloServer({
-    typeDefs: importSchema("src/schema/schema.gql"),
-    resolvers,
-  });
+  try {
+    await apollo.listen({ port: 4000 });
 
-  server.listen().then(({ url }: { url: string }) => {
-    console.log(`🚀 Server ready at ${url}`);
-  });
+    console.log(`🚀 Server ready at http://localhost:4000/graphql`);
+  } catch (e) {
+    console.error(e);
+
+    process.exit(1);
+  }
 })();

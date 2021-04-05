@@ -1,7 +1,7 @@
 import { getRepository } from "typeorm";
-import { USER_CREATION_MESSAGE } from "../../constants/mutationMessages";
-import CreateUserInput from "../../entities/CreateUserInput";
-import User from "../../entities/User";
+import { USER_CREATION_MESSAGE } from "../../../constants/mutationMessages";
+import CreateUserInput from "../../../entities/CreateUserInput";
+import User from "../../../entities/User";
 
 async function createUser(_: any, { firstName, lastName }: CreateUserInput) {
   const user = new User(firstName, lastName);

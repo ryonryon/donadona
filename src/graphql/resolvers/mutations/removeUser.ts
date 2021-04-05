@@ -2,8 +2,8 @@ import { getRepository } from "typeorm";
 import {
   USER_DELETION_MESSAGE,
   USER_DELETION_FAILED_MESSAGE,
-} from "../../constants/mutationMessages";
-import User from "../../entities/User";
+} from "../../../constants/mutationMessages";
+import User from "../../../entities/User";
 
 async function removeUser(_: any, { userId }: { userId: string }) {
   try {

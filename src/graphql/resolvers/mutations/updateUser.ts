@@ -1,6 +1,6 @@
 import { getRepository } from "typeorm";
-import UpdateUserInput from "../../entities/UpdateUserInput";
-import User from "../../entities/User";
+import UpdateUserInput from "../../../entities/UpdateUserInput";
+import User from "../../../entities/User";
 
 async function updateUser(
   _: any,
